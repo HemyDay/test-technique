@@ -29,7 +29,7 @@ const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
       case 3:
         return '#40A2E3';
       default:
-        return '#F7F7F8';
+        return 'default';
     }
   };
 
