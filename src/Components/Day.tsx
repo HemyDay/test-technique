@@ -40,7 +40,7 @@ const Day: React.FC<DayProps> = ({ dayDate }) => {
       {appointments.slice(0,10).map((appointment) => {
         {return (
           <div>
-            <Slot appointment={appointment} />
+            <Slot key={appointment.start.toISOString()} appointment={appointment} />
           </div>
         )}
       })}
