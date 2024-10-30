@@ -6,8 +6,13 @@ import './Slot.css'
 
 
 // COMPONENT START
-const Slot = () => {
+const Slot = (props:any) => {
 
+  return (
+    <p className="Slot">
+      {props.date.start.toLocaleTimeString('fr-FR', { hour:'numeric', minute:'numeric'})}
+    </p>
+  )
 }
 
 export default Slot;

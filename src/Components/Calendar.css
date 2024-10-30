@@ -10,4 +10,5 @@
 
 .Calendar > button{
   font-weight: bold;
+  height: 50px;
 }

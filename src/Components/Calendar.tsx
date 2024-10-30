@@ -50,7 +50,7 @@ const Calendar = () => {
           {'<'}
         </button>
 
-      {displayedDates.map((date) => {
+      {displayedDates.slice(0,9).map((date) => {
         {return (
           <Day key={date.toDateString()} date={date} />
         )}
