@@ -33,8 +33,8 @@ const Day: React.FC<DayProps> = ({ dayDate }) => {
   return (
     <div className="Day">
       <div className="DateStringDisplay">
-        <p style={{color:'gray'}}>{dayDate.toLocaleDateString('fr-FR',{ weekday: 'short'})}</p>
-        <p style={{fontWeight:'bold'}}>{dayDate.toLocaleDateString('fr-FR', { day:'numeric', month:'short'})}</p>
+        <p style={{color:'gray'}}>{dayDate.toLocaleDateString('fr-FR',{ weekday: 'short'}).replace(/\.$/, '')}</p>
+        <p style={{fontWeight:'bold'}}>{dayDate.toLocaleDateString('fr-FR', { day:'numeric', month:'short'}).replace(/\.$/, '')}</p>
       </div>
 
       {appointments.slice(0,10).map((appointment) => {

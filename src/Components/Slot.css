@@ -1,12 +1,9 @@
 .Slot{
-  background-color: whitesmoke;
   border-radius: 5px;
   text-align: center;
   padding: 10px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
   cursor: pointer;
+  user-select: none;
 }
 
 .Slot:hover{

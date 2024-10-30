@@ -1,12 +1,18 @@
 .Calendar{
-  width: 80%;
+  width: 60%;
   min-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
   display: flex;
+  gap: 10px;
 }
 
 .Calendar > button{
   font-weight: bold;
   height: 50px;
+  border: 0;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
 }

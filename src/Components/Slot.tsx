@@ -25,11 +25,11 @@ const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
       case 1:
         return 'black';
       case 2:
-        return 'green';
+        return '#0D9276';
       case 3:
-        return 'blue';
+        return '#40A2E3';
       default:
-        return 'whitesmoke';
+        return '#F7F7F8';
     }
   };
 

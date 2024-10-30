@@ -45,7 +45,7 @@ const Calendar = () => {
 
       <button 
         onClick={() => handleCalendarNavigation('previous')} 
-        >
+        disabled = {addDaysToDate(displayedDates[0], -1) < TODAY? true : false}>
           {'<'}
         </button>
 
