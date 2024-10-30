@@ -14,14 +14,21 @@ const Day: React.FC<DayProps> = ({ dayDate }) => {
 
   // Function that generates random appointments (between 0 and 15) that last 1 hour, between 8 AM and 8 PM
   const generateRandomAppointments = () => {
-    const appointments = [];
+    const appointments: { start: Date; end: Date; }[] = [];
 
-    for (let i = 0; i < Math.floor(Math.random() * 16); i++) {                              
+    while (appointments.length < Math.floor(Math.random() * 15 + 1)) {                              
       const start = new Date(dayDate.setHours(Math.floor(Math.random() * (20 - 8 + 1)) + 8)); // Choose random time between 8AM & 8PM
       start.setMinutes(0);                                                                    // Resets the minutes so that the hour is even
       const end = new Date(start)                                                         
-      end.setHours(end.getHours() + 1 );                                                      
-      appointments.push({ start, end });
+      end.setHours(end.getHours() + 1 );   
+
+      const isDuplicate = appointments.some(
+        (appointment) => appointment.start.getTime() === start.getTime()
+      );
+
+      if (!isDuplicate) {
+        appointments.push({ start, end });
+      }
     }
     appointments.sort((a,b) => a.start.getTime() - b.start.getTime());                        // Sorts appointments by time ascending
     return appointments;
@@ -39,9 +46,7 @@ const Day: React.FC<DayProps> = ({ dayDate }) => {
 
       {appointments.slice(0,10).map((appointment) => {
         {return (
-          <div>
-            <Slot key={appointment.start.toISOString()} appointment={appointment} />
-          </div>
+          <Slot key={appointment.start.toISOString()} appointment={appointment} />
         )}
       })}
 
