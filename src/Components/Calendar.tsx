@@ -45,14 +45,13 @@ const Calendar = () => {
 
       <button 
         onClick={() => handleCalendarNavigation('previous')} 
-        // disabled={displayedDates[0] < TODAY ? true : false}
         >
           {'<'}
         </button>
 
       {displayedDates.slice(0,9).map((date) => {
         {return (
-          <Day key={date.toDateString()} date={date} />
+          <Day key={date.toDateString()} dayDate={date} />
         )}
       })}
       

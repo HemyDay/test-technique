@@ -4,9 +4,14 @@ import React, { useState } from "react"
 import './Slot.css'
 // COMPONENTS
 
+// TYPES
+interface Appointment {
+  start: Date;
+  end: Date;
+}
 
 // COMPONENT START
-const Slot = (props:any) => {
+const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
 
   const [clickCount, setClickCount] = useState(0);
 
@@ -33,7 +38,7 @@ const Slot = (props:any) => {
       onClick={handleClick}
       style={{ backgroundColor: getBackgroundColor() }}
     >
-      {props.date.start.toLocaleTimeString('fr-FR', {hour:'numeric', minute:'numeric'})}
+      {appointment.start.toLocaleTimeString('fr-FR', {hour:'numeric', minute:'numeric'})}
     </p>
   )
 }
