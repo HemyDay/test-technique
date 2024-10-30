@@ -14,6 +14,7 @@ interface Appointment {
 const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
 
   const [clickCount, setClickCount] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
     setClickCount(prevCount => prevCount + 1);
@@ -21,15 +22,17 @@ const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
 
   // Function to determine the background color depending on the number of clicks
   const getBackgroundColor = () => {
+    if (isHovered) return { backgroundColor: 'black', color : 'white' };
+
     switch (clickCount % 4) {
       case 1:
-        return 'black';
+        return { backgroundColor: 'black', color : 'white' };
       case 2:
-        return '#0D9276';
-      case 3:
-        return '#40A2E3';
+        return { backgroundColor: '#0D9276', color : 'white' };
+      case 3: 
+        return { backgroundColor: '#40A2E3', color : 'white' };
       default:
-        return 'default';
+        return { backgroundColor: '#F7F7F8', color : 'black' };
     }
   };
 
@@ -37,7 +40,9 @@ const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
     <p 
       className="Slot"
       onClick={handleClick}
-      style={{ backgroundColor: getBackgroundColor() }}
+      style={getBackgroundColor()}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {appointment.start.toLocaleTimeString('fr-FR', {hour:'numeric', minute:'numeric'})}
     </p>
