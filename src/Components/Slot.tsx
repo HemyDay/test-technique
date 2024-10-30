@@ -19,6 +19,7 @@ const Slot: React.FC<{ appointment: Appointment }> = ({ appointment }) => {
     setClickCount(prevCount => prevCount + 1);
   };
 
+  // Function to determine the background color depending on the number of clicks
   const getBackgroundColor = () => {
     switch (clickCount % 4) {
       case 1:
