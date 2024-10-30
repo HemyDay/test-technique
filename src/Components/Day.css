@@ -1,0 +1,9 @@
+.Day {
+  width: 100%;
+}
+
+.Day > .DateStringDisplay > p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}

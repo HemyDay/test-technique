@@ -1,0 +1,13 @@
+.Calendar{
+  width: 80%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  
+  border: solid 1px red;
+}
+
+.Calendar > button{
+  font-weight: bold;
+}

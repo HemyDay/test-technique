@@ -31,18 +31,37 @@ const Calendar = () => {
   const TODAY: Date = new Date();
   const [displayedDates, setDisplayedDates] = useState(determineDatesToDisplay(TODAY,7))
 
-  
-  console.log(displayedDates)
+  // Function to handle button clicks to previous and next week
+  const handleCalendarNavigation = (attemptedChange:'previous'|'next') => {
+    let change = attemptedChange === 'previous' ? -7 : 7;
+    addDaysToDate(displayedDates[0], change) < TODAY ? 
+    console.log('Impossible to go back in time') 
+    : 
+    setDisplayedDates(determineDatesToDisplay(addDaysToDate(displayedDates[0], change),7));
+  }
 
   return (
     <section className="Calendar">
 
+      <button 
+        onClick={() => handleCalendarNavigation('previous')} 
+        // disabled={displayedDates[0] < TODAY ? true : false}
+        >
+          {'<'}
+        </button>
+
       {displayedDates.map((date) => {
         {return (
-          <Day key={date.toISOString} date={date} />
+          <Day key={date.toDateString()} date={date} />
         )}
       })}
       
+      <button 
+        onClick={() => handleCalendarNavigation('next')}
+      > 
+        {'>'}
+      </button>
+
     </section>
   )
 
